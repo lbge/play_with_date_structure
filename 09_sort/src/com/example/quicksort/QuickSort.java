@@ -9,7 +9,7 @@ import java.util.Arrays;
  */
 public class QuickSort {
     public static void main(String[] args) {
-        int[] array = {3, 5, 6, 8, 4, 2, 7, 5, 7, 3, 2, 9, 1, 6};
+        int[] array = {5, 8, 4, 7, 3, 2, 9, 1, 6};
         sort(array);
         System.out.println(Arrays.toString(array));
     }
@@ -22,13 +22,13 @@ public class QuickSort {
     private static void quickSort(int[] arr, int low, int high) {
         int index;
         if (low < high) {
-            index = grtIndex(arr, low, high);
+            index = getIndex(arr, low, high);
             quickSort(arr, low, index - 1);
             quickSort(arr, index + 1, high);
         }
     }
 
-    private static int grtIndex(int[] arr, int low, int high) {
+    private static int getIndex(int[] arr, int low, int high) {
 
         //三项取中划分
         int mid = low + (high - low) / 2;
@@ -38,7 +38,7 @@ public class QuickSort {
         if (arr[mid] > arr[high]) {
             swap(arr, mid, high);
         }
-        if (arr[low] > arr[mid]) {
+        if (arr[mid] > arr[low]) {
             swap(arr, low, mid);
         }
         int temp = arr[low];
@@ -52,7 +52,7 @@ public class QuickSort {
                 low++;
             swap(arr, low, high);
         }
-        return low;
+        return                            low;
     }
 
     private static void swap(int[] arr, int x, int y) {
